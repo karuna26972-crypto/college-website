@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IP University, BBA, BCA, BJMC, Bcom Hons, BTech, MBA Colleges Noida | KCC Institute of Technology & Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red:    #c0392b;
+  --navy:   #0d2040;
+  --blue:   #1a3a6b;
+  --orange: #e67e22;
+  --yellow: #f39c12;
+  --white:  #ffffff;
+  --light:  #f5f5f5;
+  --gray:   #666666;
+  --border: #e0e0e0;
+  --text:   #333333;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Open Sans',sans-serif; color:var(--text); background:#fff; overflow-x:hidden; }
+
+/* TOP BAR */
+.top-bar { background:var(--navy); color:#ccc; font-size:12px; padding:6px 0; overflow:hidden; }
+.top-bar-inner { max-width:1200px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; }
+.top-ticker { overflow:hidden; flex:1; margin-right:20px; }
+.ticker-track { display:flex; white-space:nowrap; animation:tickerScroll 35s linear infinite; }
+.ticker-track span { padding:0 40px; }
+.ticker-track a { color:#f39c12; text-decoration:none; }
+.ticker-track a:hover { text-decoration:underline; }
+@keyframes tickerScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+.top-right { display:flex; gap:20px; white-space:nowrap; }
+.top-right a { color:#ccc; text-decoration:none; font-size:12px; transition:color .2s; }
+.top-right a:hover { color:var(--yellow); }
+
+/* HEADER */
+header {
+  background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.12);
+  position:sticky; top:0; z-index:1000;
+  transition:box-shadow .3s;
+}
+header.scrolled { box-shadow:0 4px 20px rgba(0,0,0,.18); }
+.header-inner { max-width:1200px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; height:70px; }
+.logo-wrap { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.logo-box {
+  background:var(--red); color:white; width:54px; height:54px; border-radius:4px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  font-weight:700; font-size:18px; line-height:1;
+  transition:transform .3s;
+}
+.logo-box small { font-size:8px; font-weight:400; letter-spacing:1px; }
+.logo-wrap:hover .logo-box { transform:scale(1.05); }
+.logo-name strong { display:block; font-size:14px; color:var(--navy); font-weight:700; line-height:1.3; }
+.logo-name span { font-size:11px; color:var(--gray); }
+
+/* MAIN NAV */
+nav.main-nav > ul { display:flex; list-style:none; }
+nav.main-nav > ul > li { position:relative; }
+nav.main-nav > ul > li > a {
+  display:flex; align-items:center; gap:4px;
+  padding:0 13px; height:70px;
+  color:var(--text); text-decoration:none;
+  font-size:13px; font-weight:600;
+  border-bottom:3px solid transparent;
+  transition:color .2s, border-color .2s;
+  white-space:nowrap;
+}
+nav.main-nav > ul > li > a:hover,
+nav.main-nav > ul > li:hover > a { color:var(--red); border-bottom-color:var(--red); }
+.caret { font-size:10px; transition:transform .2s; }
+nav.main-nav > ul > li:hover .caret { transform:rotate(180deg); }
+
+.dropdown {
+  position:absolute; top:100%; left:0; min-width:220px;
+  background:#fff; border-top:3px solid var(--red);
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  opacity:0; visibility:hidden; transform:translateY(8px);
+  transition:all .25s ease; z-index:999;
+}
+nav.main-nav > ul > li:hover .dropdown { opacity:1; visibility:visible; transform:translateY(0); }
+.dropdown a {
+  display:block; padding:10px 18px; font-size:13px; color:var(--text);
+  text-decoration:none; border-bottom:1px solid #f0f0f0;
+  transition:background .15s, color .15s, padding-left .2s;
+}
+.dropdown a:hover { background:#fef5f5; color:var(--red); padding-left:24px; }
+
+/* HERO SLIDER */
+.hero { position:relative; overflow:hidden; height:520px; }
+.slide { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity .9s ease; display:flex; align-items:center; }
+.slide.active { opacity:1; }
+.slide-overlay { position:absolute; inset:0; background:linear-gradient(to right, rgba(13,32,64,.82) 40%, rgba(13,32,64,.3) 100%); }
+.slide-content { position:relative; z-index:2; max-width:1200px; margin:0 auto; padding:0 40px; color:#fff; }
+.slide-content h2 {
+  font-size:38px; font-weight:700; line-height:1.25; max-width:580px; margin-bottom:14px;
+  text-shadow:0 2px 8px rgba(0,0,0,.3);
+  transform:translateY(20px); opacity:0;
+  transition:transform .6s ease .3s, opacity .6s ease .3s;
+}
+.slide-content p {
+  font-size:17px; color:rgba(255,255,255,.85); margin-bottom:28px; max-width:480px;
+  transform:translateY(20px); opacity:0;
+  transition:transform .6s ease .5s, opacity .6s ease .5s;
+}
+.slide-btn {
+  display:inline-block; padding:12px 32px;
+  background:var(--red); color:#fff; text-decoration:none; font-weight:700; font-size:14px; border-radius:3px;
+  transform:translateY(20px); opacity:0;
+  transition:transform .6s ease .7s, opacity .6s ease .7s, background .2s;
+}
+.slide.active .slide-content h2,
+.slide.active .slide-content p,
+.slide.active .slide-content .slide-btn { transform:translateY(0); opacity:1; }
+.slide-btn:hover { background:#a93226; }
+
+.slider-dots { position:absolute; bottom:20px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:10; }
+.dot { width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.5); cursor:pointer; transition:background .3s, transform .3s; }
+.dot.active { background:var(--red); transform:scale(1.3); }
+
+.slider-arrows { position:absolute; top:50%; left:0; right:0; transform:translateY(-50%); display:flex; justify-content:space-between; padding:0 16px; z-index:10; pointer-events:none; }
+.arrow-btn {
+  pointer-events:all; width:40px; height:40px;
+  background:rgba(255,255,255,.15); border:2px solid rgba(255,255,255,.4);
+  border-radius:50%; color:#fff; font-size:18px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s, transform .2s; backdrop-filter:blur(4px);
+}
+.arrow-btn:hover { background:var(--red); border-color:var(--red); transform:scale(1.1); }
+
+/* QUICK BAR */
+.quick-bar { background:var(--red); }
+.quick-bar-inner { max-width:1200px; margin:0 auto; display:flex; overflow-x:auto; }
+.quick-link { display:flex; align-items:center; gap:6px; padding:12px 22px; color:#fff; text-decoration:none; font-size:13px; font-weight:600; white-space:nowrap; border-right:1px solid rgba(255,255,255,.2); transition:background .2s; }
+.quick-link:hover { background:rgba(0,0,0,.15); }
+
+/* SECTION HEADING */
+.sec-wrap { max-width:1200px; margin:0 auto; padding:0 20px; }
+.sec-head { text-align:center; margin-bottom:36px; padding-top:52px; }
+.sec-head h2 { font-size:28px; font-weight:700; color:var(--navy); position:relative; display:inline-block; padding-bottom:12px; }
+.sec-head h2::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:60px; height:3px; background:var(--red); border-radius:2px; transition:width .4s ease; }
+.sec-head:hover h2::after { width:100px; }
+.sec-head p { color:var(--gray); margin-top:10px; font-size:14px; }
+
+/* FADE IN */
+.fade-in { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+/* NOTICES */
+.notices-section { background:#fff; padding-bottom:52px; }
+.notices-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.notice-box { border:1px solid var(--border); border-radius:4px; overflow:hidden; transition:box-shadow .3s, transform .3s; }
+.notice-box:hover { box-shadow:0 6px 20px rgba(0,0,0,.1); transform:translateY(-3px); }
+.notice-head { background:var(--navy); color:#fff; padding:12px 18px; font-size:14px; font-weight:700; }
+.notice-item { display:flex; align-items:flex-start; gap:12px; padding:12px 18px; border-bottom:1px solid #f0f0f0; text-decoration:none; color:var(--text); transition:background .15s; }
+.notice-item:hover { background:#fef8f8; }
+.notice-date { min-width:44px; background:var(--red); color:#fff; text-align:center; border-radius:3px; padding:4px 4px; font-size:11px; font-weight:700; line-height:1.4; flex-shrink:0; }
+.notice-text { font-size:13px; line-height:1.5; }
+.notice-text strong { color:var(--navy); font-weight:600; display:block; margin-bottom:2px; }
+.new-badge { display:inline-block; background:var(--orange); color:#fff; font-size:9px; font-weight:700; padding:1px 6px; border-radius:2px; margin-left:6px; animation:blink 1.5s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+/* STATS */
+.stats-band { background:var(--navy); padding:40px 0; }
+.stats-grid { display:grid; grid-template-columns:repeat(5,1fr); max-width:1200px; margin:0 auto; padding:0 20px; }
+.stat-item { text-align:center; padding:10px 20px; border-right:1px solid rgba(255,255,255,.15); transition:transform .3s; }
+.stat-item:last-child { border-right:none; }
+.stat-item:hover { transform:scale(1.06); }
+.stat-num { font-size:40px; font-weight:700; color:var(--yellow); display:block; line-height:1; }
+.stat-label { font-size:13px; color:rgba(255,255,255,.75); margin-top:6px; }
+
+/* PROGRAMS */
+.programs-section { background:var(--light); padding-bottom:52px; }
+.prog-tabs { display:flex; border-bottom:2px solid var(--border); margin-bottom:28px; }
+.prog-tab { padding:10px 28px; font-size:14px; font-weight:600; cursor:pointer; color:var(--gray); border-bottom:3px solid transparent; margin-bottom:-2px; background:none; border-top:none; border-left:none; border-right:none; transition:color .2s, border-color .2s; }
+.prog-tab.active { color:var(--red); border-bottom-color:var(--red); }
+.prog-panel { display:none; }
+.prog-panel.active { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.prog-card { background:#fff; border:1px solid var(--border); border-radius:4px; overflow:hidden; display:flex; transition:box-shadow .3s, transform .3s; }
+.prog-card:hover { box-shadow:0 6px 20px rgba(0,0,0,.1); transform:translateY(-3px); }
+.prog-img { width:130px; flex-shrink:0; background-size:cover; background-position:center; position:relative; overflow:hidden; }
+.prog-img::after { content:''; position:absolute; inset:0; background:rgba(13,32,64,.25); transition:background .3s; }
+.prog-card:hover .prog-img::after { background:rgba(192,57,43,.25); }
+.prog-body { padding:18px 20px; flex:1; }
+.prog-body h3 { font-size:15px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.prog-body ul { list-style:none; margin-bottom:12px; }
+.prog-body ul li { font-size:12px; color:var(--gray); padding:2px 0 2px 14px; position:relative; }
+.prog-body ul li::before { content:'›'; position:absolute; left:0; color:var(--red); font-weight:700; }
+.prog-body ul li a { color:var(--gray); text-decoration:none; transition:color .2s; }
+.prog-body ul li a:hover { color:var(--red); }
+.prog-meta { font-size:11px; color:var(--gray); }
+.prog-meta span { color:var(--orange); font-weight:600; }
+.btn-explore { display:inline-block; margin-top:10px; padding:6px 16px; background:var(--red); color:#fff; text-decoration:none; font-size:12px; font-weight:700; border-radius:3px; transition:background .2s, transform .15s; }
+.btn-explore:hover { background:#a93226; transform:translateX(3px); }
+
+/* LIFE */
+.life-section { background:#fff; padding-bottom:52px; }
+.life-tabs { display:flex; border-bottom:2px solid var(--border); margin-bottom:24px; }
+.life-tab { padding:10px 22px; font-size:13px; font-weight:600; cursor:pointer; color:var(--gray); border-bottom:3px solid transparent; margin-bottom:-2px; background:none; border-top:none; border-left:none; border-right:none; transition:color .2s, border-color .2s; }
+.life-tab.active { color:var(--red); border-bottom-color:var(--red); }
+.life-panel { display:none; }
+.life-panel.active { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.life-card { border-radius:4px; overflow:hidden; position:relative; height:200px; cursor:pointer; }
+.life-card img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+.life-card:hover img { transform:scale(1.06); }
+.life-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(13,32,64,.75) 0%, transparent 60%); opacity:0; transition:opacity .3s; display:flex; align-items:flex-end; padding:14px; }
+.life-card:hover .life-overlay { opacity:1; }
+.life-overlay span { color:#fff; font-weight:600; font-size:14px; }
+
+/* PLACEMENTS */
+.placement-section { background:var(--light); padding-bottom:52px; }
+.placement-grid { display:grid; grid-template-columns:1fr 2fr; gap:30px; align-items:start; }
+.placement-info h3 { font-size:20px; font-weight:700; color:var(--navy); margin-bottom:12px; }
+.placement-info p { font-size:14px; color:var(--gray); line-height:1.7; margin-bottom:16px; }
+.p-stats { display:flex; flex-direction:column; gap:10px; }
+.p-stat { background:#fff; border-left:4px solid var(--red); padding:12px 16px; border-radius:2px; transition:transform .2s, box-shadow .2s; }
+.p-stat:hover { transform:translateX(4px); box-shadow:0 3px 10px rgba(0,0,0,.08); }
+.p-stat strong { display:block; font-size:20px; font-weight:700; color:var(--red); }
+.p-stat span { font-size:12px; color:var(--gray); }
+.recruiters-wrap { }
+.recruiters-wrap h4 { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:14px; }
+.recruiter-chips { display:flex; flex-wrap:wrap; gap:10px; }
+.r-chip { background:#fff; border:1px solid var(--border); border-radius:3px; padding:8px 16px; font-size:13px; font-weight:600; color:var(--navy); transition:all .2s; cursor:default; }
+.r-chip:hover { border-color:var(--red); color:var(--red); box-shadow:0 2px 8px rgba(192,57,43,.12); transform:translateY(-2px); }
+
+/* TESTIMONIALS */
+.test-section { background:#fff; padding-bottom:52px; overflow:hidden; }
+.test-track { display:flex; gap:20px; animation:testScroll 30s linear infinite; width:max-content; padding:10px 0; }
+.test-track:hover { animation-play-state:paused; }
+@keyframes testScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+.test-card { width:310px; background:#fff; border:1px solid var(--border); border-top:4px solid var(--red); border-radius:4px; padding:20px; flex-shrink:0; transition:box-shadow .3s, transform .3s; }
+.test-card:hover { box-shadow:0 6px 20px rgba(0,0,0,.1); transform:translateY(-4px); }
+.test-stars { color:var(--yellow); font-size:13px; margin-bottom:8px; }
+.test-text { font-size:13px; color:var(--gray); line-height:1.65; font-style:italic; margin-bottom:14px; }
+.test-author { display:flex; align-items:center; gap:10px; }
+.test-av { width:38px; height:38px; border-radius:50%; background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; flex-shrink:0; }
+.test-info strong { display:block; font-size:13px; color:var(--navy); }
+.test-info span { font-size:11px; color:var(--red); }
+
+/* INQUIRY */
+.inq-section { background:var(--navy); padding:52px 0; }
+.inq-inner { max-width:1200px; margin:0 auto; padding:0 20px; display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+.inq-text h2 { font-size:28px; font-weight:700; color:#fff; margin-bottom:12px; }
+.inq-text p { font-size:14px; color:rgba(255,255,255,.7); line-height:1.7; }
+.contact-list { margin-top:20px; display:flex; flex-direction:column; gap:10px; }
+.c-item { display:flex; align-items:center; gap:10px; color:rgba(255,255,255,.85); font-size:13px; }
+.inq-form { background:#fff; border-radius:6px; padding:28px; }
+.inq-form h3 { font-size:15px; font-weight:700; color:var(--navy); margin-bottom:18px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+.f-field { display:flex; flex-direction:column; gap:4px; }
+.f-field.full { grid-column:span 2; }
+.f-field label { font-size:12px; font-weight:600; color:var(--gray); }
+.f-field input, .f-field select { padding:9px 12px; border:1px solid var(--border); border-radius:3px; font-size:13px; font-family:inherit; transition:border-color .2s, box-shadow .2s; outline:none; }
+.f-field input:focus, .f-field select:focus { border-color:var(--red); box-shadow:0 0 0 3px rgba(192,57,43,.1); }
+.btn-submit { width:100%; padding:11px; background:var(--red); color:#fff; border:none; border-radius:3px; font-size:14px; font-weight:700; cursor:pointer; transition:background .2s, transform .15s; margin-top:4px; }
+.btn-submit:hover { background:#a93226; transform:translateY(-1px); }
+
+/* ACCREDITATIONS */
+.accred-bar { background:var(--light); padding:28px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.accred-inner { max-width:1200px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:14px; }
+.accred-badge { background:#fff; border:1px solid var(--border); border-radius:3px; padding:9px 20px; font-size:13px; font-weight:700; color:var(--navy); transition:all .2s; }
+.accred-badge:hover { border-color:var(--red); box-shadow:0 3px 10px rgba(0,0,0,.1); transform:translateY(-2px); }
+
+/* FOOTER */
+footer { background:#1a1a2e; color:rgba(255,255,255,.75); }
+.footer-top { max-width:1200px; margin:0 auto; padding:48px 20px 28px; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; }
+.footer-logo { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+.f-logo-box { background:var(--red); color:#fff; width:42px; height:42px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; }
+.footer-logo span { font-size:13px; font-weight:700; color:#fff; line-height:1.4; }
+.footer-about p { font-size:13px; line-height:1.7; color:rgba(255,255,255,.6); margin-bottom:18px; }
+.soc-row { display:flex; gap:8px; }
+.soc-btn { width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; font-size:12px; text-decoration:none; color:#fff; font-weight:700; transition:background .2s, transform .2s; }
+.soc-btn:hover { background:var(--red); transform:translateY(-3px); }
+.f-col h4 { color:#fff; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-bottom:14px; border-bottom:2px solid var(--red); padding-bottom:7px; display:inline-block; }
+.f-col ul { list-style:none; display:flex; flex-direction:column; gap:7px; }
+.f-col ul li a { font-size:12px; color:rgba(255,255,255,.6); text-decoration:none; transition:color .2s, padding-left .2s; display:block; }
+.f-col ul li a:hover { color:var(--yellow); padding-left:5px; }
+.footer-bottom { background:#111122; padding:14px 20px; text-align:center; font-size:12px; color:rgba(255,255,255,.4); }
+.footer-bottom a { color:var(--yellow); text-decoration:none; }
+
+/* BACK TO TOP */
+#btt { position:fixed; bottom:28px; right:28px; width:40px; height:40px; background:var(--red); color:#fff; border:none; border-radius:50%; font-size:20px; cursor:pointer; box-shadow:0 4px 14px rgba(192,57,43,.5); opacity:0; transform:translateY(20px); transition:opacity .3s, transform .3s; z-index:999; display:flex; align-items:center; justify-content:center; }
+#btt.show { opacity:1; transform:translateY(0); }
+#btt:hover { background:#a93226; transform:translateY(-3px); }
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav.main-nav{display:none;}
+  .hero{height:360px;}
+  .slide-content h2{font-size:24px;}
+  .notices-grid,.prog-panel.active,.placement-grid,.inq-inner,.footer-top{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:repeat(3,1fr);}
+  .life-panel.active{grid-template-columns:repeat(2,1fr);}
+  .form-row{grid-template-columns:1fr;}
+  .f-field.full{grid-column:span 1;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="top-ticker">
+      <div class="ticker-track">
+        <span><a href="#">Anugoonj 2026</a> &nbsp;|&nbsp; IP University-274: <a href="#">BBA</a> | <a href="#">BCA</a> | <a href="#">BAJMC</a> | <a href="#">B.Com(Hons.)</a> | <a href="#">BA LLB (H)</a> | <a href="#">BBA LLB (H)</a> &nbsp;|&nbsp; AKTU B.Tech-492 &nbsp;|&nbsp; <a href="#">MBA</a> &nbsp;|&nbsp; <a href="#">Scholarship</a> &nbsp;|&nbsp; <a href="#">Testimonials</a> &nbsp;|&nbsp; <a href="#">Careers at KCC</a></span>
+        <span><a href="#">Anugoonj 2026</a> &nbsp;|&nbsp; IP University-274: <a href="#">BBA</a> | <a href="#">BCA</a> | <a href="#">BAJMC</a> | <a href="#">B.Com(Hons.)</a> | <a href="#">BA LLB (H)</a> | <a href="#">BBA LLB (H)</a> &nbsp;|&nbsp; AKTU B.Tech-492 &nbsp;|&nbsp; <a href="#">MBA</a> &nbsp;|&nbsp; <a href="#">Scholarship</a> &nbsp;|&nbsp; <a href="#">Testimonials</a> &nbsp;|&nbsp; <a href="#">Careers at KCC</a></span>
+      </div>
+    </div>
+    <div class="top-right">
+      <a href="#">📞 +91-120-4567890</a>
+      <a href="#">✉ admissions@kccitm.edu.in</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="mainHeader">
+  <div class="header-inner">
+    <a href="#" class="logo-wrap">
+      <div class="logo-box">KCC<small>ITM</small></div>
+      <div class="logo-name">
+        <strong>KCC Institute of Technology & Management</strong>
+        <span>Greater Noida, Delhi-NCR</span>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li>
+          <a href="#">About <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="#">KCC Institutes</a>
+            <a href="#">Vision, Mission & Quality Objective</a>
+            <a href="#">Chairman's Message</a>
+            <a href="#">Vice Chairperson's Message</a>
+            <a href="#">Governing Council</a>
+            <a href="#">Accreditations & Rankings</a>
+            <a href="#">Anti Ragging Policy</a>
+            <a href="#">About KCC Group</a>
+            <a href="#">Our Location</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">Academics <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="#">Departments</a>
+            <a href="#">Academic Calendar</a>
+            <a href="#">Teaching Pedagogy</a>
+            <a href="#">Faculty</a>
+            <a href="#">Examination</a>
+            <a href="#">Center Of Excellence</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">Admissions <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="#">Admission Process</a>
+            <a href="#">Eligibility</a>
+            <a href="#">Talk to Admission Manager</a>
+            <a href="#">Download Brochure</a>
+            <a href="#">Payment Procedure</a>
+            <a href="#">Fee Structure</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">Programs <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="#">B.Tech (All Branches)</a>
+            <a href="#">BBA / BCA</a>
+            <a href="#">BA Journalism (JMC)</a>
+            <a href="#">B.Com (Hons.)</a>
+            <a href="#">BA LLB / BBA LLB</a>
+            <a href="#">MBA Plus</a>
+            <a href="#">M.Tech Programs</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">Infrastructure <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="#">Academic Block</a>
+            <a href="#">Library</a>
+            <a href="#">Auditorium</a>
+            <a href="#">Sports Complex</a>
+            <a href="#">Hostel</a>
+            <a href="#">Activity Clubs</a>
+            <a href="#">Facilities</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">Placements <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="#">About Placement Cell</a>
+            <a href="#">Our Recruiters</a>
+            <a href="#">Placement Record</a>
+            <a href="#">Placement Policy</a>
+            <a href="#">CRC Infrastructure</a>
+            <a href="#">Internship</a>
+            <a href="#">CRC Team</a>
+          </div>
+        </li>
+        <li>
+          <a href="#">Life@KCC <span class="caret">▾</span></a>
+          <div class="dropdown">
+            <a href="#">Image Gallery</a>
+            <a href="#">Video Gallery</a>
+            <a href="#">Student Testimonial</a>
+            <a href="#">Events</a>
+            <a href="#">News & Announcements</a>
+            <a href="#">Placement Updates</a>
+          </div>
+        </li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO SLIDER -->
+<div class="hero">
+  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1562774053-701939374585?w=1400&q=80')">
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>A College That Offers More Than a Degree</h2>
+      <p>Preparing future professionals by enhancing workforce readiness</p>
+      <a href="#" class="slide-btn">Apply Now</a>
+    </div>
+  </div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1400&q=80')">
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>Where Tomorrow Starts Today</h2>
+      <p>Be all that you can be — explore your future with KCC</p>
+      <a href="#" class="slide-btn">Explore Programs</a>
+    </div>
+  </div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&q=80')">
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>A Great Place to Think Big Thoughts</h2>
+      <p>Your future is waiting for you</p>
+      <a href="#" class="slide-btn">Know More</a>
+    </div>
+  </div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1400&q=80')">
+    <div class="slide-overlay"></div>
+    <div class="slide-content">
+      <h2>Focus on Your Goal, Not the Obstacle</h2>
+      <p>When opportunity presents itself, don't be afraid to go after it</p>
+      <a href="#" class="slide-btn">Get Started</a>
+    </div>
+  </div>
+  <div class="slider-arrows">
+    <button class="arrow-btn" id="prevBtn">&#8592;</button>
+    <button class="arrow-btn" id="nextBtn">&#8594;</button>
+  </div>
+  <div class="slider-dots" id="dots"></div>
+</div>
+
+<!-- QUICK LINKS -->
+<div class="quick-bar">
+  <div class="quick-bar-inner">
+    <a class="quick-link" href="#">🎓 Admissions 2026</a>
+    <a class="quick-link" href="#">📋 Fee Structure</a>
+    <a class="quick-link" href="#">📥 Download Brochure</a>
+    <a class="quick-link" href="#">🏆 Placements</a>
+    <a class="quick-link" href="#">🏫 Infrastructure</a>
+    <a class="quick-link" href="#">📅 Anugoonj 2026</a>
+    <a class="quick-link" href="#">💰 Scholarship</a>
+    <a class="quick-link" href="#">📞 Contact Us</a>
+  </div>
+</div>
+
+<!-- NOTICES -->
+<section class="notices-section">
+  <div class="sec-wrap">
+    <div class="sec-head fade-in"><h2>Notices &amp; Announcements</h2></div>
+    <div class="notices-grid">
+      <div class="notice-box fade-in" style="transition-delay:.1s">
+        <div class="notice-head">📢 Latest News &amp; Events</div>
+        <a class="notice-item" href="#"><div class="notice-date">FEB<br>2026</div><div class="notice-text"><strong>Anugoonj 2026 Registrations Open <span class="new-badge">NEW</span></strong>Annual cultural festival — Register before March 15</div></a>
+        <a class="notice-item" href="#"><div class="notice-date">JAN<br>2026</div><div class="notice-text"><strong>FUEL 2024 Annual Fest Highlights</strong>A night of laughter, music &amp; talent at KCC</div></a>
+        <a class="notice-item" href="#"><div class="notice-date">JAN<br>2024</div><div class="notice-text"><strong>Kai Po Che 2024</strong>Inter-college kite festival &amp; cultural competition</div></a>
+        <a class="notice-item" href="#"><div class="notice-date">FEB<br>2024</div><div class="notice-text"><strong>Soulful Blues Evening</strong>Musical night event — open to all students</div></a>
+      </div>
+      <div class="notice-box fade-in" style="transition-delay:.2s">
+        <div class="notice-head">🏢 Placement Updates</div>
+        <a class="notice-item" href="#"><div class="notice-date">MAR<br>2026</div><div class="notice-text"><strong>TCS Campus Drive <span class="new-badge">NEW</span></strong>45 students placed — packages starting 3.5 LPA</div></a>
+        <a class="notice-item" href="#"><div class="notice-date">NOV<br>2022</div><div class="notice-text"><strong>Placement Success Stories at KCC</strong>Read how our alumni are excelling in their careers</div></a>
+        <a class="notice-item" href="#"><div class="notice-date">DEC<br>2019</div><div class="notice-text"><strong>Campus Drive — Emicon Advisory Services</strong>Multiple roles offered to final year students</div></a>
+        <a class="notice-item" href="#"><div class="notice-date">DEC<br>2019</div><div class="notice-text"><strong>Campus Placement Drive — Extramarks</strong>EdTech giant recruits from KCC campus</div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stats-grid" id="statsGrid">
+    <div class="stat-item fade-in"><span class="stat-num" data-val="25" data-suf="+">0</span><div class="stat-label">Years of Excellence</div></div>
+    <div class="stat-item fade-in" style="transition-delay:.1s"><span class="stat-num" data-val="10000" data-suf="+">0</span><div class="stat-label">Alumni Network</div></div>
+    <div class="stat-item fade-in" style="transition-delay:.2s"><span class="stat-num" data-val="500" data-suf="+">0</span><div class="stat-label">Recruiting Companies</div></div>
+    <div class="stat-item fade-in" style="transition-delay:.3s"><span class="stat-num" data-val="95" data-suf="%">0</span><div class="stat-label">Placement Rate</div></div>
+    <div class="stat-item fade-in" style="transition-delay:.4s"><span class="stat-num" data-val="4000" data-suf="+">0</span><div class="stat-label">Current Students</div></div>
+  </div>
+</div>
+
+<!-- PROGRAMS -->
+<section class="programs-section">
+  <div class="sec-wrap">
+    <div class="sec-head fade-in"><h2>Study with Us</h2><p>Innovation is in our DNA — explore our pillars of knowledge</p></div>
+    <div class="fade-in">
+      <div class="prog-tabs">
+        <button class="prog-tab active" onclick="switchProg('ug',this)">Undergraduate Programmes</button>
+        <button class="prog-tab" onclick="switchProg('pg',this)">Postgraduate Programmes</button>
+      </div>
+      <div class="prog-panel active" id="progUg">
+        <div class="prog-card">
+          <div class="prog-img" style="background-image:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=300&q=80')"></div>
+          <div class="prog-body">
+            <h3>UG Programs — KCC ITM</h3>
+            <ul>
+              <li><a href="#">B.Tech Computer Science &amp; Engineering</a></li>
+              <li><a href="#">B.Tech CSE (AI &amp; Machine Learning)</a></li>
+              <li><a href="#">B.Tech CSE (Data Science)</a></li>
+              <li><a href="#">B.Tech CSE (IoT)</a></li>
+              <li><a href="#">B.Tech Mechanical / ECE / EE / Civil / IT</a></li>
+              <li><a href="#">B.Tech CSE (Artificial Intelligence)</a></li>
+            </ul>
+            <div class="prog-meta">📅 Last Date: <span>Will be notified soon</span></div>
+            <a href="#" class="btn-explore">EXPLORE PROGRAMME →</a>
+          </div>
+        </div>
+        <div class="prog-card">
+          <div class="prog-img" style="background-image:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=300&q=80')"></div>
+          <div class="prog-body">
+            <h3>UG Programs — KCC ILHE</h3>
+            <ul>
+              <li><a href="#">BBA — Business Administration</a></li>
+              <li><a href="#">BCA — Computer Applications</a></li>
+              <li><a href="#">BA (JMC) — Journalism &amp; Mass Comm.</a></li>
+              <li><a href="#">B.Com (Hons.) — Commerce</a></li>
+              <li><a href="#">BBA LLB (H)</a></li>
+              <li><a href="#">BA LLB (H)</a></li>
+            </ul>
+            <div class="prog-meta">📅 Last Date: <span>Will be notified soon</span></div>
+            <a href="#" class="btn-explore">EXPLORE PROGRAMME →</a>
+          </div>
+        </div>
+      </div>
+      <div class="prog-panel" id="progPg">
+        <div class="prog-card">
+          <div class="prog-img" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80')"></div>
+          <div class="prog-body">
+            <h3>MBA Plus</h3>
+            <ul>
+              <li><a href="#">MBA — Finance &amp; Banking</a></li>
+              <li><a href="#">MBA — Marketing Management</a></li>
+              <li><a href="#">MBA — HR Management</a></li>
+              <li><a href="#">MBA — Information Technology</a></li>
+            </ul>
+            <div class="prog-meta">📅 Last Date: <span>Will be notified soon</span></div>
+            <a href="#" class="btn-explore">EXPLORE PROGRAMME →</a>
+          </div>
+        </div>
+        <div class="prog-card">
+          <div class="prog-img" style="background-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=300&q=80')"></div>
+          <div class="prog-body">
+            <h3>M.Tech Programs</h3>
+            <ul>
+              <li><a href="#">M.Tech Computer Science &amp; Engineering</a></li>
+              <li><a href="#">M.Tech Electronics &amp; Communication</a></li>
+              <li><a href="#">M.Tech Mechanical Engineering</a></li>
+            </ul>
+            <div class="prog-meta">📅 Last Date: <span>Will be notified soon</span></div>
+            <a href="#" class="btn-explore">EXPLORE PROGRAMME →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFE AT KCC -->
+<section class="life-section">
+  <div class="sec-wrap">
+    <div class="sec-head fade-in"><h2>Life at KCC</h2><p>Life at KCC offers excitement and learning</p></div>
+    <div class="fade-in">
+      <div class="life-tabs">
+        <button class="life-tab active" onclick="switchLife('campus',this)">Life At KCC</button>
+        <button class="life-tab" onclick="switchLife('social',this)">Social Impact</button>
+        <button class="life-tab" onclick="switchLife('industry',this)">Industry Exposure</button>
+        <button class="life-tab" onclick="switchLife('culture',this)">Culture Dive</button>
+      </div>
+      <div class="life-panel active" id="lifeCampus">
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=500&q=80" alt="Campus"><div class="life-overlay"><span>Main Campus</span></div></div>
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500&q=80" alt="Labs"><div class="life-overlay"><span>Computer Labs</span></div></div>
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Library"><div class="life-overlay"><span>Central Library</span></div></div>
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=500&q=80" alt="Sports"><div class="life-overlay"><span>Sports Complex</span></div></div>
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=500&q=80" alt="Auditorium"><div class="life-overlay"><span>Auditorium</span></div></div>
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1562774053-701939374585?w=500&q=80" alt="Grounds"><div class="life-overlay"><span>Campus Grounds</span></div></div>
+      </div>
+      <div class="life-panel" id="lifeSocial">
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=500&q=80" alt="Community"><div class="life-overlay"><span>Community Outreach</span></div></div>
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500&q=80" alt="NSS"><div class="life-overlay"><span>NSS Activities</span></div></div>
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=500&q=80" alt="Initiative"><div class="life-overlay"><span>Social Initiatives</span></div></div>
+      </div>
+      <div class="life-panel" id="lifeIndustry">
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=500&q=80" alt="Industry"><div class="life-overlay"><span>Industry Visits</span></div></div>
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=500&q=80" alt="Workshop"><div class="life-overlay"><span>Tech Workshops</span></div></div>
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&q=80" alt="Internship"><div class="life-overlay"><span>Internship Programs</span></div></div>
+      </div>
+      <div class="life-panel" id="lifeCulture">
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500&q=80" alt="Fest"><div class="life-overlay"><span>Annual Fest FUEL</span></div></div>
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=500&q=80" alt="Music"><div class="life-overlay"><span>Music & Dance</span></div></div>
+        <div class="life-card"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&q=80" alt="Cultural"><div class="life-overlay"><span>Cultural Events</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLACEMENTS -->
+<section class="placement-section">
+  <div class="sec-wrap">
+    <div class="sec-head fade-in"><h2>Placements</h2><p>Our dedicated CRC works year-round to place every student</p></div>
+    <div class="placement-grid">
+      <div class="placement-info fade-in">
+        <h3>Industry-Leading Placement Record</h3>
+        <p>KCC's Career Resource Centre provides comprehensive pre-placement training, industry visits and direct campus drives from 500+ companies annually.</p>
+        <div class="p-stats">
+          <div class="p-stat"><strong>₹12 LPA</strong><span>Highest package offered</span></div>
+          <div class="p-stat"><strong>500+</strong><span>Recruiting companies</span></div>
+          <div class="p-stat"><strong>95%</strong><span>Overall placement rate</span></div>
+          <div class="p-stat"><strong>3.5 LPA</strong><span>Average starting package</span></div>
+        </div>
+      </div>
+      <div class="recruiters-wrap fade-in" style="transition-delay:.2s">
+        <h4>Our Top Recruiters</h4>
+        <div class="recruiter-chips">
+          <span class="r-chip">TCS</span><span class="r-chip">Infosys</span><span class="r-chip">Wipro</span>
+          <span class="r-chip">HCL</span><span class="r-chip">Cognizant</span><span class="r-chip">Accenture</span>
+          <span class="r-chip">IBM</span><span class="r-chip">Oracle</span><span class="r-chip">Capgemini</span>
+          <span class="r-chip">Tech Mahindra</span><span class="r-chip">Deloitte</span><span class="r-chip">Amazon</span>
+          <span class="r-chip">Mindtree</span><span class="r-chip">L&amp;T Infotech</span><span class="r-chip">HDFC Bank</span>
+          <span class="r-chip">Byju's</span><span class="r-chip">Zomato</span><span class="r-chip">Paytm</span>
+          <span class="r-chip">Mphasis</span><span class="r-chip">Hexaware</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="test-section">
+  <div class="sec-wrap">
+    <div class="sec-head fade-in"><h2>Student Testimonials</h2><p>What our alumni say about KCC</p></div>
+  </div>
+  <div style="overflow:hidden; padding:8px 0 40px;">
+    <div class="test-track">
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"KCC gave me the technical foundation and industry exposure I needed. The placement cell was incredibly supportive throughout my job search."</p><div class="test-author"><div class="test-av">R</div><div class="test-info"><strong>Rahul Sharma</strong><span>B.Tech CSE → TCS</span></div></div></div>
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"The AI/ML labs at KCC are state of the art. Hands-on experience during my B.Tech helped me land my dream role in data science."</p><div class="test-author"><div class="test-av">P</div><div class="test-info"><strong>Priya Verma</strong><span>B.Tech AI/ML → IBM</span></div></div></div>
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"The MBA program has real industry integration. Guest lectures from CEOs and live projects made all the difference in my career."</p><div class="test-author"><div class="test-av">A</div><div class="test-info"><strong>Arjun Gupta</strong><span>MBA → Deloitte</span></div></div></div>
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"The moot court facilities and internship network at KCC ILHE were phenomenal. Highly recommend the BBA LLB program."</p><div class="test-author"><div class="test-av">S</div><div class="test-info"><strong>Sanya Kapoor</strong><span>BBA LLB → Legal Associate</span></div></div></div>
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"Great infrastructure, enthusiastic faculty and a vibrant campus life. KCC is not just a college, it is a true launchpad for careers."</p><div class="test-author"><div class="test-av">V</div><div class="test-info"><strong>Vikram Singh</strong><span>B.Tech ECE → Qualcomm</span></div></div></div>
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"BAJMC at KCC gave me live studio access, real journalism projects and the confidence to face any media interview."</p><div class="test-author"><div class="test-av">N</div><div class="test-info"><strong>Nisha Joshi</strong><span>BAJMC → News Anchor</span></div></div></div>
+      <!-- duplicate for loop -->
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"KCC gave me the technical foundation and industry exposure I needed. The placement cell was incredibly supportive throughout my job search."</p><div class="test-author"><div class="test-av">R</div><div class="test-info"><strong>Rahul Sharma</strong><span>B.Tech CSE → TCS</span></div></div></div>
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"The AI/ML labs at KCC are state of the art. Hands-on experience during my B.Tech helped me land my dream role in data science."</p><div class="test-author"><div class="test-av">P</div><div class="test-info"><strong>Priya Verma</strong><span>B.Tech AI/ML → IBM</span></div></div></div>
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"The MBA program has real industry integration. Guest lectures from CEOs and live projects made all the difference in my career."</p><div class="test-author"><div class="test-av">A</div><div class="test-info"><strong>Arjun Gupta</strong><span>MBA → Deloitte</span></div></div></div>
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"The moot court facilities and internship network at KCC ILHE were phenomenal. Highly recommend the BBA LLB program."</p><div class="test-author"><div class="test-av">S</div><div class="test-info"><strong>Sanya Kapoor</strong><span>BBA LLB → Legal Associate</span></div></div></div>
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"Great infrastructure, enthusiastic faculty and a vibrant campus life. KCC is not just a college, it is a true launchpad for careers."</p><div class="test-author"><div class="test-av">V</div><div class="test-info"><strong>Vikram Singh</strong><span>B.Tech ECE → Qualcomm</span></div></div></div>
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"BAJMC at KCC gave me live studio access, real journalism projects and the confidence to face any media interview."</p><div class="test-author"><div class="test-av">N</div><div class="test-info"><strong>Nisha Joshi</strong><span>BAJMC → News Anchor</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCREDITATIONS -->
+<div class="accred-bar fade-in">
+  <div class="accred-inner">
+    <span style="font-size:13px;font-weight:700;color:#666;margin-right:6px;">Approved &amp; Affiliated by:</span>
+    <div class="accred-badge">AKTU Affiliated</div>
+    <div class="accred-badge">IP University Affiliated</div>
+    <div class="accred-badge">NBA Accredited</div>
+    <div class="accred-badge">NAAC Accredited</div>
+    <div class="accred-badge">AICTE Approved</div>
+    <div class="accred-badge">BCI Approved</div>
+    <div class="accred-badge">UGC Recognized</div>
+  </div>
+</div>
+
+<!-- INQUIRY FORM -->
+<section class="inq-section">
+  <div class="inq-inner">
+    <div class="inq-text fade-in">
+      <h2>Apply Now</h2>
+      <p>Take the first step towards your future. Fill in the enquiry form and our admission team will get in touch with you shortly.</p>
+      <div class="contact-list">
+        <div class="c-item">📍 Knowledge Park II, Greater Noida, UP – 201306</div>
+        <div class="c-item">📞 +91-120-4567890 / 4567891</div>
+        <div class="c-item">✉ admissions@kccitm.edu.in</div>
+        <div class="c-item">🌐 www.kccitm.edu.in</div>
+      </div>
+    </div>
+    <div class="inq-form fade-in" style="transition-delay:.2s">
+      <h3>Inquire for Course — Get a Call Back</h3>
+      <div class="form-row">
+        <div class="f-field"><label>Full Name *</label><input type="text" placeholder="Your full name"></div>
+        <div class="f-field"><label>Mobile Number *</label><input type="tel" placeholder="+91 XXXXXXXXXX"></div>
+        <div class="f-field"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+        <div class="f-field"><label>City</label><input type="text" placeholder="Your city"></div>
+        <div class="f-field full"><label>Program of Interest *</label>
+          <select>
+            <option value="">-- Select Program --</option>
+            <option>BBA</option><option>BCA</option><option>B.Com(Hons.)</option>
+            <option>BAJMC</option><option>B.Tech Civil Engineering</option>
+            <option>B.Tech Electrical Engineering</option><option>B.Tech Mechanical Engineering</option>
+            <option>B.Tech Information Technology</option>
+            <option>B.Tech Electronics &amp; Communication</option>
+            <option>B.Tech Computer Science &amp; Engineering</option>
+            <option>CSE (Internet of Things)</option>
+            <option>CSE (AI &amp; Machine Learning)</option>
+            <option>CSE (Data Science)</option>
+            <option>M.Tech Mechanical</option>
+            <option>M.Tech Electronics &amp; Communication</option>
+            <option>M.Tech Computer Science</option>
+            <option>MBA Plus</option><option>BA LLB (H)</option><option>BBA LLB (H)</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-submit">SUBMIT ENQUIRY →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-about">
+      <div class="footer-logo">
+        <div class="f-logo-box">KCC</div>
+        <span>KCC Institute of<br>Technology &amp; Management</span>
+      </div>
+      <p>A premier institution in Greater Noida offering engineering, management, law and media programs under AKTU &amp; IP University. Committed to academic excellence since 1999.</p>
+      <div class="soc-row">
+        <a class="soc-btn" href="#" title="Facebook">f</a>
+        <a class="soc-btn" href="#" title="Instagram">in</a>
+        <a class="soc-btn" href="#" title="Twitter">t</a>
+        <a class="soc-btn" href="#" title="LinkedIn">li</a>
+        <a class="soc-btn" href="#" title="YouTube">yt</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#">B.Tech Engineering</a></li>
+        <li><a href="#">CSE (AI / ML)</a></li>
+        <li><a href="#">MBA Plus</a></li>
+        <li><a href="#">BBA / BCA</a></li>
+        <li><a href="#">BA LLB / BBA LLB</a></li>
+        <li><a href="#">BA Journalism (JMC)</a></li>
+        <li><a href="#">M.Tech Programs</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">About KCC</a></li>
+        <li><a href="#">Admissions 2026</a></li>
+        <li><a href="#">Fee Structure</a></li>
+        <li><a href="#">Scholarship</a></li>
+        <li><a href="#">Placement Cell</a></li>
+        <li><a href="#">Image Gallery</a></li>
+        <li><a href="#">Alumni Network</a></li>
+        <li><a href="#">Anti Ragging</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Contact Us</h4>
+      <ul>
+        <li><a href="#">📍 Knowledge Park II, Greater Noida</a></li>
+        <li><a href="#">📞 +91-120-4567890</a></li>
+        <li><a href="#">✉ admissions@kccitm.edu.in</a></li>
+        <li><a href="#">🌐 www.kccitm.edu.in</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 KCC Institute of Technology &amp; Management, Greater Noida. All rights reserved. &nbsp;|&nbsp;
+    <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Disclaimer</a>
+  </div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// SLIDER
+const slides = document.querySelectorAll('.slide');
+const dotsEl = document.getElementById('dots');
+let cur = 0, sliderTimer;
+
+slides.forEach((_,i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i===0?' active':'');
+  d.onclick = () => goTo(i);
+  dotsEl.appendChild(d);
+});
+
+function goTo(n) {
+  slides[cur].classList.remove('active');
+  dotsEl.children[cur].classList.remove('active');
+  cur = (n + slides.length) % slides.length;
+  slides[cur].classList.add('active');
+  dotsEl.children[cur].classList.add('active');
+  resetTimer();
+}
+function resetTimer() {
+  clearInterval(sliderTimer);
+  sliderTimer = setInterval(() => goTo(cur+1), 5000);
+}
+document.getElementById('nextBtn').onclick = () => goTo(cur+1);
+document.getElementById('prevBtn').onclick = () => goTo(cur-1);
+resetTimer();
+
+// SCROLL
+const header = document.getElementById('mainHeader');
+const btt = document.getElementById('btt');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 10);
+  btt.classList.toggle('show', window.scrollY > 300);
+});
+
+// FADE IN
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, {threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+// COUNTER
+const cObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.querySelectorAll('.stat-num[data-val]').forEach(el => {
+        const end = parseInt(el.dataset.val), suf = el.dataset.suf||'';
+        let v=0; const step=end/60;
+        const t = setInterval(() => {
+          v = Math.min(v+step, end);
+          el.textContent = Math.floor(v).toLocaleString()+suf;
+          if(v>=end) clearInterval(t);
+        }, 25);
+      });
+      cObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.4});
+cObs.observe(document.getElementById('statsGrid'));
+
+// TABS
+function switchProg(type, btn) {
+  document.querySelectorAll('.prog-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.prog-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('prog'+type.charAt(0).toUpperCase()+type.slice(1)).classList.add('active');
+}
+function switchLife(type, btn) {
+  document.querySelectorAll('.life-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.life-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  const map={campus:'lifeCampus',social:'lifeSocial',industry:'lifeIndustry',culture:'lifeCulture'};
+  document.getElementById(map[type]).classList.add('active');
+}
+</script>
+</body>
+</html>
